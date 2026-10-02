@@ -51,12 +51,12 @@ function esIntentoValido(texto, numero) {
 function calcularTemperatura(numero) {
   const proporcion = Math.abs(numero - secreto) / maximo;
 
-  if (proporcion === 0) return { clase: "acertado", mensaje: "🎉 ¡Correcto!" };
-  if (proporcion <= 0.03) return { clase: "ardiendo", mensaje: "🔥 ¡Te estás quemando!" };
-  if (proporcion <= 0.08) return { clase: "caliente", mensaje: "♨️ Caliente" };
-  if (proporcion <= 0.15) return { clase: "templado", mensaje: "🌤️ Templado" };
-  if (proporcion <= 0.3) return { clase: "frio", mensaje: "🌬️ Frío" };
-  return { clase: "helado", mensaje: "🧊 Helado" };
+  if (proporcion === 0) return { clase: "acertado", mensaje: "¡Correcto!" };
+  if (proporcion <= 0.03) return { clase: "ardiendo", mensaje: "¡Te estás quemando!" };
+  if (proporcion <= 0.08) return { clase: "caliente", mensaje: "Caliente" };
+  if (proporcion <= 0.15) return { clase: "templado", mensaje: "Templado" };
+  if (proporcion <= 0.3) return { clase: "frio", mensaje: "Frío" };
+  return { clase: "helado", mensaje: "Helado" };
 }
 
 function mostrarRespuesta(mensaje, clase) {
@@ -71,7 +71,7 @@ function consultarOraculo(evento) {
   const numero = Number(texto);
 
   if (!esIntentoValido(texto, numero)) {
-    mostrarRespuesta(`🤨 Eso no es un número válido (1–${maximo})`, "error");
+    mostrarRespuesta(`Eso no es un número válido (1–${maximo})`, "error");
     return;
   }
 
@@ -84,7 +84,7 @@ function consultarOraculo(evento) {
     mostrarRespuesta(`${mensaje} Era el ${secreto} y lo encontraste en ${intentos} intentos`, clase);
     terminarPartida();
   } else if (intentos === intentosMaximos) {
-    mostrarRespuesta(`💀 Se acabaron los intentos. El número era el ${secreto}`, "derrota");
+    mostrarRespuesta(`Se acabaron los intentos. El número era el ${secreto}`, "derrota");
     terminarPartida();
   } else {
     mostrarRespuesta(mensaje, clase);
@@ -110,8 +110,16 @@ function terminarPartida() {
   botonConsultar.disabled = true;
 }
 
+// Tecla secreta: "n" de noche
+function alternarModoNoche(evento) {
+  if (evento.key.toLowerCase() === "n") {
+    document.body.classList.toggle("modo-noche");
+  }
+}
+
 formulario.addEventListener("submit", consultarOraculo);
 botonNuevaPartida.addEventListener("click", nuevaPartida);
 selectorDificultad.addEventListener("change", nuevaPartida);
+document.addEventListener("keydown", alternarModoNoche);
 
 nuevaPartida();

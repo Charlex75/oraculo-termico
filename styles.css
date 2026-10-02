@@ -13,6 +13,14 @@
   --ardiendo: #e03131;
 }
 
+/* Modo noche: solo se redefinen las variables, el resto de reglas no cambia */
+body.modo-noche {
+  --fondo: #11131a;
+  --tarjeta: #1d2029;
+  --texto: #e9e9ee;
+  --suave: #9a9cab;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -27,6 +35,7 @@ body {
   font-family: system-ui, sans-serif;
   background: var(--fondo);
   color: var(--texto);
+  transition: background 0.4s, color 0.4s;
 }
 
 .templo {
@@ -35,6 +44,7 @@ body {
   background: var(--tarjeta);
   border-radius: 16px;
   padding: 28px;
+  transition: background 0.4s;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
@@ -63,6 +73,8 @@ button {
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  background: var(--tarjeta);
+  color: var(--texto);
 }
 
 input {
