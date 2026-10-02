@@ -8,11 +8,35 @@ const respuesta = document.querySelector("#respuesta");
 const marcador = document.querySelector("#marcador");
 const historial = document.querySelector("#historial");
 
-// Estado de la partida
-const maximo = 100;
-const intentosMaximos = 10;
-const secreto = generarSecreto(maximo);
-let intentos = 0;
+// Cada dificultad cambia el rango y los intentos disponibles
+const dificultades = {
+  facil: { maximo: 50, intentos: 8 },
+  normal: { maximo: 100, intentos: 10 },
+  dificil: { maximo: 500, intentos: 12 },
+};
+
+// Estado de la partida: se rellena en nuevaPartida()
+let maximo;
+let intentosMaximos;
+let secreto;
+let intentos;
+
+function nuevaPartida() {
+  const config = dificultades[selectorDificultad.value];
+  maximo = config.maximo;
+  intentosMaximos = config.intentos;
+  secreto = generarSecreto(maximo);
+  intentos = 0;
+
+  historial.replaceChildren();
+  inputIntento.disabled = false;
+  botonConsultar.disabled = false;
+  inputIntento.value = "";
+  inputIntento.placeholder = `Del 1 al ${maximo}`;
+  mostrarRespuesta("El oráculo espera…", "");
+  actualizarMarcador();
+  inputIntento.focus();
+}
 
 function generarSecreto(max) {
   return Math.floor(Math.random() * max) + 1;
@@ -87,4 +111,7 @@ function terminarPartida() {
 }
 
 formulario.addEventListener("submit", consultarOraculo);
-actualizarMarcador();
+botonNuevaPartida.addEventListener("click", nuevaPartida);
+selectorDificultad.addEventListener("change", nuevaPartida);
+
+nuevaPartida();
