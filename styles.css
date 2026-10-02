@@ -89,6 +89,45 @@ button:disabled {
   text-align: center;
 }
 
+/* Una clase por temperatura: el JS solo decide cuál poner */
+.helado {
+  background: var(--helado);
+  color: #fff;
+}
+
+.frio {
+  background: var(--frio);
+}
+
+.templado {
+  background: var(--templado);
+}
+
+.caliente {
+  background: var(--caliente);
+  color: #fff;
+}
+
+.ardiendo {
+  background: var(--ardiendo);
+  color: #fff;
+}
+
+.acertado {
+  background: #2f9e44;
+  color: #fff;
+}
+
+.derrota {
+  background: var(--texto);
+  color: var(--tarjeta);
+}
+
+.error {
+  background: transparent;
+  border: 2px dashed var(--suave);
+}
+
 .marcador {
   color: var(--suave);
   text-align: center;
@@ -100,6 +139,14 @@ button:disabled {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.ficha {
+  min-width: 44px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .pista-secreta {
