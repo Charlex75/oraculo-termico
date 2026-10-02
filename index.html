@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Oráculo Térmico</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="templo">
+      <header>
+        <h1>🌡️ El Oráculo Térmico</h1>
+        <p class="subtitulo">
+          He pensado un número. No te diré si es mayor o menor… solo si te estás quemando.
+        </p>
+      </header>
+
+      <section class="ajustes">
+        <label for="dificultad">Dificultad</label>
+        <select id="dificultad">
+          <option value="facil">Fácil (1–50)</option>
+          <option value="normal" selected>Normal (1–100)</option>
+          <option value="dificil">Difícil (1–500)</option>
+        </select>
+        <button id="nueva-partida" type="button">Nueva partida</button>
+      </section>
+
+      <form id="formulario" class="consulta">
+        <input id="intento" type="number" placeholder="Tu número" required />
+        <button id="consultar" type="submit">Consultar</button>
+      </form>
+
+      <p id="respuesta" class="respuesta">El oráculo espera…</p>
+      <p id="marcador" class="marcador"></p>
+
+      <ul id="historial" class="historial"></ul>
+
+      <footer>
+        <p class="pista-secreta">Dicen que el oráculo también duerme de noche…</p>
+      </footer>
+    </main>
+  </body>
+</html>

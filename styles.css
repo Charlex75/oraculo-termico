@@ -1,0 +1,110 @@
+/* Colores en variables: el modo oscuro solo tendrá que cambiarlas */
+:root {
+  --fondo: #f4efe6;
+  --tarjeta: #ffffff;
+  --texto: #2b2b2b;
+  --suave: #6b6b6b;
+  --acento: #d9480f;
+
+  --helado: #1c7ed6;
+  --frio: #74c0fc;
+  --templado: #fab005;
+  --caliente: #f76707;
+  --ardiendo: #e03131;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+  font-family: system-ui, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+.templo {
+  width: 100%;
+  max-width: 520px;
+  background: var(--tarjeta);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+}
+
+.subtitulo {
+  margin: 0 0 24px;
+  color: var(--suave);
+}
+
+.ajustes,
+.consulta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+input {
+  flex: 1;
+}
+
+button {
+  cursor: pointer;
+  background: var(--acento);
+  color: #fff;
+  border: none;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.respuesta {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.marcador {
+  color: var(--suave);
+  text-align: center;
+}
+
+.historial {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pista-secreta {
+  margin: 24px 0 0;
+  font-size: 0.8rem;
+  color: var(--suave);
+  text-align: center;
+}
